@@ -11,6 +11,3 @@ MongoDB
 
 ```> db.results.find({"header": {$regex: /.*Microsoft-IIS.*/, $options: 'si'}}).count()
 187```
-
-```> db.results.find({"header": {$regex: /.*Apache.*/, $options: 'si'}}).count()```
-```500```
