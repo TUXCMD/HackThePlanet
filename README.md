@@ -7,7 +7,7 @@ PHP: pcntl();
 MongoDB
 
 ## Running
-```/usr/bin/php hunter.php```
+```/usr/bin/php hunter.php <workers>```
 
 ## Making use and querying collected datas
 ```$ mongo```
