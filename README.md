@@ -9,8 +9,10 @@ MongoDB
 ## Making use and querying collected datas
 ```$ mongo```
 
-```> db.results.find({"header": {$regex: /.*Microsoft-IIS.*/, $options: 'si'}}).count()
+```> db.results.find({"header": {$regex: /.*Microsoft-IIS.*/, $options: 'si'}}).count() 
+
 187```
 
-```> db.results.find({"header": {$regex: /.*Apache.*/, $options: 'si'}}).count()
+```> db.results.find({"header": {$regex: /.*Apache.*/, $options: 'si'}}).count() 
+
 500```
