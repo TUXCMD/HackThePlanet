@@ -6,6 +6,8 @@ PHP: pcntl();
 
 PHP: MongoClient();
 
+PHP: curl();
+
 MongoDB
 
 ## Running
@@ -16,3 +18,9 @@ MongoDB
 
 ```> db.results.find({"header": {$regex: /.*Microsoft-IIS.*/, $options: 'si'}}).count()
 187```
+
+```> db.results.find({'status': 401}).count()
+2032```
+
+## Logging
+*/var/log/httphunter.log*
