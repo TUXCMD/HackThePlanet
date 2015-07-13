@@ -4,6 +4,8 @@ Multi-threaded system that generates IP addresses at random, then checks for HTT
 ## Requirements
 PHP: pcntl();
 
+PHP: MongoClient();
+
 MongoDB
 
 ## Running
