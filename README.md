@@ -8,8 +8,6 @@ MongoDB
 
 ## Running
 ```/usr/bin/php hunter.php```
-```Specify number of workers
-	hunter.php 5```
 
 ## Making use and querying collected datas
 ```$ mongo```
