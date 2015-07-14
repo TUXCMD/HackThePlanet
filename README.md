@@ -1,6 +1,9 @@
 # HTTP-Hunter
 Multi-threaded system that generates IP addresses at random, then checks for HTTP. If HTTP is accepted we record the header data and store into MongoDB for later searchable use.
 
+## Why?
+Because I'm cheap, and I don't feel like paying for [Shodan.io](https://developer.shodan.io/pricing).
+
 ## Requirements
 PHP: pcntl();
 
