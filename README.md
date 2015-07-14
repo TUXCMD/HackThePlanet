@@ -109,3 +109,5 @@ To-Do list
     - [ ] playbook for deploying DB nodes
     - [ ] playbook for deploying worker nodes
 - [ ] Jobs to scan found hosts for other common services (SSH, MySQL, FTP, Telnet, etc.) periodically
+- [ ] Install script
+- [ ] Documentation
