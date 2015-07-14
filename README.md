@@ -22,6 +22,45 @@ MongoDB
 ```> db.results.find({'status': 401}).count()
 2032```
 
+```$ mongo httphunter --eval "printjson(db.results.find({status:200}, {ip:0, _id:0}).limit(1).toArray())"
+MongoDB shell version: 2.4.9
+connecting to: httphunter
+[
+	{
+		"status" : 200,
+		"header" : "HTTP/1.1 200 OK\r\nDate: Mon, 13 Jul 2015 18:17:01 GMT\r\nContent-Length: 1193\r\nContent-Type: text/html\r\nContent-Location: http://0.<REDACTED>.206.248/iisstart.htm\r\nLast-Modified: Fri, 21 Feb 2003 12:15:52 GMT\r\nAccept-Ranges: bytes\r\nETag: \"0ce1f9a2d9c21:276f\"\r\nServer: IIS\r\nX-Powered-By: WAF/2.0\r\nSet-Cookie: safedog-flow-item=2F3F1EF09C22C6F0A6DB702CB0F1E804; expires=Thur, 19-Aug-2151 21:28:17 GMT; domain=<REDACTED>; path=/\r\n\r\n",
+		"0" : {
+			"url" : "http://0.<REDACTED>.206.248/",
+			"content_type" : "text/html",
+			"http_code" : 200,
+			"header_size" : 424,
+			"request_size" : 100,
+			"filetime" : -1,
+			"ssl_verify_result" : 0,
+			"redirect_count" : 0,
+			"total_time" : 1.392957,
+			"namelookup_time" : 0.000058,
+			"connect_time" : 0.335482,
+			"pretransfer_time" : 0.335657,
+			"size_upload" : 0,
+			"size_download" : 0,
+			"speed_download" : 0,
+			"speed_upload" : 0,
+			"download_content_length" : 1193,
+			"upload_content_length" : 0,
+			"starttransfer_time" : 1.392885,
+			"redirect_time" : 0,
+			"redirect_url" : "",
+			"primary_ip" : "<REDACTED>",
+			"certinfo" : [ ],
+			"primary_port" : 80,
+			"local_ip" : "10.0.2.15",
+			"local_port" : 41606
+		},
+		"found" : 1436811425
+	}
+]```
+
 ## Logging
 */var/log/httphunter.log*
 
