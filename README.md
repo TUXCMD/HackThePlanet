@@ -14,14 +14,20 @@ MongoDB
 ```/usr/bin/php hunter.php <workers>```
 
 ## Making use and querying collected datas
-```$ mongo```
+Use the MongoDB shell
+```$ mongo httphunter```
 
-```> db.results.find({"header": {$regex: /.*Microsoft-IIS.*/, $options: 'si'}}).count()
-187```
+```
+> db.results.find({"header": {$regex: /.*Microsoft-IIS.*/, $options: 'si'}}).count()
+187
+```
 
-```> db.results.find({'status': 401}).count()
-2032```
+```
+> db.results.find({'status': 401}).count()
+2032
+```
 
+Execute queries from the command line
 ```
 $ mongo httphunter --eval "printjson(db.results.find({status:200}, {ip:0, _id:0}).limit(1).toArray())"
 MongoDB shell version: 2.4.9
