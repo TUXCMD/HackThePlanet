@@ -22,7 +22,8 @@ MongoDB
 ```> db.results.find({'status': 401}).count()
 2032```
 
-```$ mongo httphunter --eval "printjson(db.results.find({status:200}, {ip:0, _id:0}).limit(1).toArray())"
+```
+$ mongo httphunter --eval "printjson(db.results.find({status:200}, {ip:0, _id:0}).limit(1).toArray())"
 MongoDB shell version: 2.4.9
 connecting to: httphunter
 [
@@ -59,7 +60,8 @@ connecting to: httphunter
 		},
 		"found" : 1436811425
 	}
-]```
+]
+```
 
 ## Logging
 */var/log/httphunter.log*
