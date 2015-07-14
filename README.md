@@ -94,4 +94,14 @@ To-Do list
     - [ ] Cluster mode management in the dashboard
     - [ ] Cluster types for different types of scan jobs
     - [ ] Cluster worker  management
-    - [ ] EC2 & other cloud provider API support for auto-provisioning new DB or worker nodes
+    - [ ] Metrics page to include data on content management systems found, GeoIP metrics, historical graphs
+    - [ ] Cloud provider support for deployment of Worker machines and DB nodes (scalability)
+      - [ ] EC2
+      - [ ] Digital Ocean
+      - [ ] RackSpace
+      - [ ] Linode
+    - [ ] User management & Access controls
+    - [ ] Export data feature
+- [ ] Ansible
+    - [ ] playbook for deploying DB nodes
+    - [ ] playbook for deploying worker nodes
