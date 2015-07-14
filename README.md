@@ -91,8 +91,9 @@ To-Do list
 - [ ] Add scan type to configuration of each scanning node (port number specification, timeouts, etc.)
 - [ ] Clustered functionality
 - [ ] Write system dashboard
+    - [ ] Find a decent PHP web framework to use for this (CodeIgniter, Cake, Lavarel, Slim, etc.)
+      - [ ] PHP Framework selected: ____
     - [ ] Cluster mode management in the dashboard
-    - [ ] Cluster types for different types of scan jobs
     - [ ] Cluster worker  management
     - [ ] Metrics page to include data on content management systems found, GeoIP metrics, historical graphs
     - [ ] Cloud provider support for deployment of Worker machines and DB nodes (scalability)
@@ -102,6 +103,9 @@ To-Do list
       - [ ] Linode
     - [ ] User management & Access controls
     - [ ] Export data feature
+    - [ ] REST API
+      - [ ] use access control function to govern API access and quotas
 - [ ] Ansible
     - [ ] playbook for deploying DB nodes
     - [ ] playbook for deploying worker nodes
+- [ ] Jobs to scan found hosts for other common services (SSH, MySQL, FTP, Telnet, etc.) periodically
