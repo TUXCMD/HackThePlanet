@@ -90,6 +90,7 @@ To-Do list
 - [ ] Make init scripts
 - [ ] Add scan type to configuration of each scanning node (port number specification, timeouts, etc.)
 - [ ] Clustered functionality
+  - [ ] Heartbeat workers to display heatlh data
 - [ ] Write system dashboard
     - [ ] Find a decent PHP web framework to use for this (CodeIgniter, Cake, Lavarel, Slim, etc.)
       - [ ] PHP Framework selected: ____
