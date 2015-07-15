@@ -95,7 +95,7 @@ To-Do list
 - [ ] Create pruning scripts to do routine maintenance on MongDB database
 - [ ] Insert logic to allow for MongoDB clustered setup (for scale)
 - [ ] Web dashboard to manage slaves when running in clustered mode
-- [x] Add GeoIP function that stores it with each entry in the MongoDB collection
+- [x] ~~Add GeoIP function that stores it with each entry in the MongoDB collection~~
 - [ ] Create JSON based configuration system
 - [ ] Make init scripts
 - [ ] Add scan type to configuration of each scanning node (port number specification, timeouts, etc.)
