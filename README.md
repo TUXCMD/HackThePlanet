@@ -74,13 +74,19 @@ connecting to: httphunter
 ]
 ```
 
+Querying for found hosts with SSL support
+```
+> db.results.find({SSL: true}, {ip:1, status:1, SSL:1, _id:0}).count()
+34
+```
+
 ## Logging
 */var/log/httphunter.log*
 
 To-Do list
 ----------
-- [ ] Add TTL to each record entry to ensure that records do not become "stale"
-- [ ] Introduce SSL support
+- [ ] Add TTL to each record entry to ensure that records do not become "stale" (the found key will be used for this since it's an epoch timestamp)
+- [ x ] Introduce SSL support
   - [ ] Function to check for SSL versions so they can be matched to attacks (do not actually attack hosts, just check version numbers and cross reference them with potential vulnerabilities
 - [ ] Create jobs to search for common content management systems and fingerprint them
 - [ ] Create pruning scripts to do routine maintenance on MongDB database

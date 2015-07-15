@@ -10,8 +10,11 @@
 |
 |                      @xxxx[{::::::::::::::::::::::::::::::::::>
 |	@dustyfresh | atxsec.com
+|	@RootATX | rootatx.com
+|
+|
 */
-error_reporting(0);
+error_reporting(1);
 set_time_limit(0);
 $workers = $argv[1] or die("Specify number of workers\n\t" . $argv[0] . " 5\n");
 //fsockopen(localhost, 9050) or die("ERROR: TOR is not running!\n"); // uncomment to check for TOR
@@ -37,7 +40,13 @@ function connectScan(){
             $collection = $db->results;
             $req_info = curl_getinfo($curl);
             $foundtime = time();
-            $results = array("ip" => $ip, "status" => $req_info['http_code'], "header" => curl_exec($curl), $req_info, "found" => $foundtime);
+	    $sslcheck = fsockopen("$ip", 443, $errno, $errstr, 3);
+	    if(!$sslcheck){
+		$ssl = false;
+	    } else {
+		$ssl = true;
+	    }
+            $results = array("ip" => $ip, "status" => $req_info['http_code'], "header" => curl_exec($curl), $req_info, "SSL" => $ssl, "found" => $foundtime);
             if($req_info['http_code'] == 401){
                 $collection->insert($results);
                 $output = "[" . date(DATE_RFC2822) . "] - $ip - 401 AUTH\n";
