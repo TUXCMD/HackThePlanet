@@ -47,8 +47,8 @@ function connectScan(){
 		$get_cert = stream_context_create (array("ssl" => array("capture_peer_cert" => true)));
 		$connect_host = stream_socket_client("ssl://$ip:443", $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $get_cert);
 		$ssl = stream_context_get_params($connect_host);
-		$cert_info = openssl_x509_parse($ssl["options"]["ssl"]["peer_certificate"]);
-		$ssl_data = array($cert_info);
+		$cert_info = json_encode(openssl_x509_parse($ssl["options"]["ssl"]["peer_certificate"]), true);
+		$ssl_data = $cert_info;
 		$results = array("ip" => $ip, "status" => $req_info['http_code'], "header" => curl_exec($curl), $req_info, "SSL" => true, "SSL_DATA" => $ssl_data, "found" => $foundtime);
 	    }
             if($req_info['http_code'] == 401){
