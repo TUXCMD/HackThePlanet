@@ -20,17 +20,19 @@ MongoDB
 Use the MongoDB shell
 ```$ mongo httphunter```
 
+Count the number of results that match the string Microsoft-ISS (not case sensitive)
 ```
 > db.results.find({"header": {$regex: /.*Microsoft-IIS.*/, $options: 'si'}}).count()
 187
 ```
 
+Count the number of results found with a 401 status code (Unauthorized, basic HTTP auth normally.)
 ```
 > db.results.find({'status': 401}).count()
 2032
 ```
 
-Execute queries from the command line
+Execute queries from the command line instead of using the Mongo shell
 ```
 $ mongo httphunter --eval "printjson(db.results.find({status:200}, {ip:0, _id:0}).limit(1).toArray())"
 MongoDB shell version: 2.4.9
@@ -77,7 +79,6 @@ connecting to: httphunter
 
 To-Do list
 ----------
-- [ ] Create cache of IP ranges to not scan (government, law enforcement, certain countries, etc.)
 - [ ] Add TTL to each record entry to ensure that records do not become "stale"
 - [ ] Introduce SSL support
   - [ ] Function to check for SSL versions so they can be matched to attacks (do not actually attack hosts, just check version numbers and cross reference them with potential vulnerabilities
