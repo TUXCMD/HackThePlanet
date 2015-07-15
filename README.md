@@ -100,8 +100,8 @@ To-Do list
 - [ ] Clustered functionality
   - [ ] Heartbeat workers to display heatlh data
 - [ ] Write system dashboard
-    - [ ] Find a decent PHP web framework to use for this (CodeIgniter, Cake, Lavarel, Slim, etc.)
-      - [ ] PHP Framework selected: ____
+    - [x] ~~Find a decent PHP web framework to use for dashboard~~
+      - [x] ~~PHP Framework selected: [Slim](http://www.slimframework.com)~~
     - [ ] Cluster mode management in the dashboard
     - [ ] Cluster worker  management
     - [ ] Metrics page to include data on content management systems found, GeoIP metrics, historical graphs
