@@ -86,7 +86,7 @@ Querying for found hosts with SSL support
 To-Do list
 ----------
 - [ ] Add TTL to each record entry to ensure that records do not become "stale" (the found key will be used for this since it's an epoch timestamp)
-- [ x ] Introduce SSL support
+- [x] Introduce SSL support
   - [ ] Function to check for SSL versions so they can be matched to attacks (do not actually attack hosts, just check version numbers and cross reference them with potential vulnerabilities
 - [ ] Create jobs to search for common content management systems and fingerprint them
 - [ ] Create pruning scripts to do routine maintenance on MongDB database
