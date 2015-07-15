@@ -8,3 +8,5 @@ $reader = new Reader('/usr/local/share/GeoIP/GeoLite2-City.mmdb');
 $record = $reader->city($ip);
 $geoip_country = $record->country->isoCode; // 'US'
 $geoip_state = $record->mostSpecificSubdivision->name; // 'Minnesota'
+$geoip_lat = $record->location->latitude;
+$geoip_lon = $record->location->longitude;
