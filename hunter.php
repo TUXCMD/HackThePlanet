@@ -14,7 +14,7 @@
 |
 |
 */
-error_reporting(1);
+error_reporting(0);
 set_time_limit(0);
 $workers = $argv[1] or die("Specify number of workers\n\t" . $argv[0] . " 5\n");
 //fsockopen(localhost, 9050) or die("ERROR: TOR is not running!\n"); // uncomment to check for TOR
@@ -42,11 +42,15 @@ function connectScan(){
             $foundtime = time();
 	    $sslcheck = fsockopen("$ip", 443, $errno, $errstr, 3);
 	    if(!$sslcheck){
-		$ssl = false;
+		$results = array("ip" => $ip, "status" => $req_info['http_code'], "header" => curl_exec($curl), $req_info, "SSL" => "false", "SSL_DATA" => "false", "found" => $foundtime);
 	    } else {
-		$ssl = true;
+		$get_cert = stream_context_create (array("ssl" => array("capture_peer_cert" => true)));
+		$connect_host = stream_socket_client("ssl://$ip:443", $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $get_cert);
+		$ssl = stream_context_get_params($connect_host);
+		$cert_info = openssl_x509_parse($ssl["options"]["ssl"]["peer_certificate"]);
+		$ssl_data = array($cert_info);
+		$results = array("ip" => $ip, "status" => $req_info['http_code'], "header" => curl_exec($curl), $req_info, "SSL" => true, "SSL_DATA" => $ssl_data, "found" => $foundtime);
 	    }
-            $results = array("ip" => $ip, "status" => $req_info['http_code'], "header" => curl_exec($curl), $req_info, "SSL" => $ssl, "found" => $foundtime);
             if($req_info['http_code'] == 401){
                 $collection->insert($results);
                 $output = "[" . date(DATE_RFC2822) . "] - $ip - 401 AUTH\n";
