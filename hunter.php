@@ -14,7 +14,7 @@
 |
 |
 */
-error_reporting(1);
+error_reporting(0);
 set_time_limit(0);
 $workers = $argv[1] or die("Specify number of workers\n\t" . $argv[0] . " 5\n");
 //fsockopen(localhost, 9050) or die("ERROR: TOR is not running!\n"); // uncomment to check for TOR
