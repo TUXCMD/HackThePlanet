@@ -31,7 +31,7 @@ $app->get('/', function(){
 $app->get('/version', function(){
 	$app = \Slim\Slim::getInstance();
 	$app->response()->headers->set('Content-Type', 'application/json');
-        print json_encode(array('version' => 'beta-0.1'));
+        print json_encode(array('version' => 'beta-0.1'), JSON_PRETTY_PRINT);
 });
 
 $app->get('/search/ip/:ip', function($ip){
