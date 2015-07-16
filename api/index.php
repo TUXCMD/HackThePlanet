@@ -47,12 +47,12 @@ $app->get('/search/ip/:ip', function($ip){
 $app->get('/get/ips', function() use($app){
 	$app->response()->headers->set('Content-Type', 'application/json');
 	require_once 'inc/db.php';
-	$cursor = $collection->find(array(), array('_id' => 0, 'ip' => 1, 'GeoIP' => 1));
+	$cursor = $collection->find(array(), array('_id' => 0, 'ip' => 1, 'SSL' => 1, 'GeoIP' => 1));
 	$out = array();
         foreach($cursor as $result){
-                array_push($out, array($result['ip'] => $result['GeoIP']));
+                array_push($out, array($result['ip'] => $result['GeoIP'], 'SSL' => $result['SSL']));
 	}
-	print json_encode($out);
+	print json_encode($out, JSON_PRETTY_PRINT);
 });
 
 $app->run();
