@@ -18,6 +18,9 @@ MongoDB
 ## Running
 ```/usr/bin/php hunter.php <workers>```
 
+## REST API
+Yes! This is happening! the api/ directory contains the Slim PHP framework files for the beginnings of our REST API.
+
 ## Making use and querying collected datas
 Use the MongoDB shell
 ```$ mongo httphunter```
@@ -114,8 +117,9 @@ To-Do list
       - [ ] Linode
     - [ ] User management & Access controls
     - [ ] Export data feature
-    - [ ] REST API
-      - [ ] use access control function to govern API access and quotas
+- [ ] REST API
+  - [x] ~~Find framework for API (going with slim)~~
+  - [ ] use access control function to govern API access and quotas
 - [ ] Ansible
     - [ ] playbook for deploying DB nodes
     - [ ] playbook for deploying worker nodes
