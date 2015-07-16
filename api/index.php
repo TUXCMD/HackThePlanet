@@ -25,7 +25,8 @@ $app->get('/', function(){
 <u><h3>Methods:</h3></u>
 /version - check version<br/>
 /search/ip/{ip} - search for documents matching an IP address<br/>
-/get/ips - get all IPs in the database. argument not required. Includes GeoIP data<br/>";
+/get/ips - get all IPs in the database. argument not required. Includes GeoIP data<br/>
+/count - total number of records in the HTTP-Hunter database";
 });
 
 $app->get('/version', function(){
@@ -53,6 +54,13 @@ $app->get('/get/ips', function() use($app){
                 array_push($out, array($result['ip'] => $result['GeoIP'], 'SSL' => $result['SSL']));
 	}
 	print json_encode($out, JSON_PRETTY_PRINT);
+});
+
+$app->get('/count', function() use($app){
+        $app->response()->headers->set('Content-Type', 'application/json');
+        require_once 'inc/db.php';
+	$count = $collection->count();
+	print json_encode(array('total' => $count), JSON_PRETTY_PRINT);
 });
 
 $app->run();
