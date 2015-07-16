@@ -1,7 +1,6 @@
 <html>
 <title>HTTP-Hunter API</title>
 <?php
-
 require 'vendor/autoload.php';
 $app = new \Slim\Slim();
 
@@ -34,7 +33,11 @@ $app->get('/', function(){
 });
 
 $app->get('/search/ip/:ip', function($ip){
-	echo "This function will lookup the record for $ip";
+	require_once 'inc/db.php';
+	$cursor = $collection->find(array('ip' => "$ip"), array('_id' => 0));
+	foreach($cursor as $result){
+		print json_encode($result,JSON_PRETTY_PRINT);
+	}
 
 });
 
